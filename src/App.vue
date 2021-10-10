@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="todoapp">
+    <Head />
+    <!-- 父传子 提升渲染性能 -->
+    <List :list="list"/>
+    <Foot />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Head from "./views/head.vue";
+import List from "./views/list.vue";
+import Foot from "./views/foot.vue";
+import "../styles/base.css";
+import "../styles/index.css";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Head,
+    List,
+    Foot,
+  },
+  data() {
+    return {
+       list: [
+        { id: 100, name: "吃饭", isDone: true },
+        { id: 201, name: "睡觉", isDone: false },
+        { id: 103, name: "打豆豆", isDone: true },
+      ],
+    }
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
