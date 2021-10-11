@@ -18,6 +18,12 @@
 
 <script>
 export default {
-
+    props: {
+        list: {
+            type: Array,
+            // 返回一个数组 如果是对象 ()=>({})  数组[] 如果是()=>[]函数更加规范推荐
+            default: ()=>[]
+        },
+    },
 }
 </script>

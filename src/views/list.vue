@@ -5,7 +5,7 @@
       <div class="view">
         <input class="toggle" type="checkbox" v-model="tm.isDone" />
         <label>{{tm.name}}</label>
-        <button  class="destroy"></button>
+        <button @click="delTodo(tm.id)" class="destroy"></button>
       </div>
     </li>
   </ul>
@@ -21,6 +21,11 @@ export default {
             // 默认数组
             default: ()=>[]
         },
+    },
+    methods: {
+        delTodo(id) {
+            this.$emit('del-todo',id)
+        }
     },
 }
 </script>

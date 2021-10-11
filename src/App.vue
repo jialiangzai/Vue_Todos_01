@@ -1,9 +1,9 @@
 <template>
   <div class="todoapp">
-    <Head />
+    <Head @change-list="addTodo" />
     <!-- 父传子 提升渲染性能 -->
-    <List :list="list"/>
-    <Foot />
+    <List  @del-todo="delTodo"  :list="list"/>
+    <Foot :list="list"/>
   </div>
 </template>
 
@@ -27,6 +27,16 @@ export default {
         { id: 201, name: "睡觉", isDone: false },
         { id: 103, name: "打豆豆", isDone: true },
       ],
+    }
+  },
+  methods: {
+    addTodo(name) {
+      // console.log('go');
+      this.list.unshift( { id: Date.now(), name, isDone: false })
+    },
+    delTodo(id){
+       this.list=this.list.filter(item=>{item.id !== id})
+     
     }
   },
 };
