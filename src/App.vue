@@ -35,7 +35,7 @@ export default {
       this.list.unshift( { id: Date.now(), name, isDone: false })
     },
     delTodo(id){
-       this.list=this.list.filter(item=>{item.id !== id})
+       this.list=this.list.filter(item=>item.id !== id)
      
     }
   },
